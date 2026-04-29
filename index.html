@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>CV. Wirasucahya - Panel Lantai & Dinding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f9ff;
+            color: #0a2540;
+            line-height: 1.5;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: #0f2b4d;
+            color: white;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* Active page indicator */
+        .nav-links a.active {
+            color: #3b82f6;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            font-weight: bold;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* HERO SECTION (Pengenalan) */
+        .hero {
+            background: linear-gradient(135deg, #0f2b4d 0%, #1e3a6b 100%);
+            color: white;
+            padding: 80px 0;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #e2e8f0;
+        }
+
+        .hero-image {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border-radius: 32px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            background: #0a2540;
+            color: #bbdef5;
+            text-align: center;
+            padding: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0 10px 0;
+                gap: 16px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .navbar .container {
+                flex-wrap: wrap;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 60px 0;
+                min-height: auto;
+            }
+
+            .hero-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .btn-outline {
+                margin-left: 0 !important;
+                margin-top: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">CV. <span>Wirasucahya</span></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Pengenalan</a></li>
+            <li><a href="produk.html">Produk & Spek</a></li>
+            <li><a href="manfaat.html">Manfaat</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <h1>Bangunan Kuat, Efisien & Modern</h1>
+            <p>CV. Wirasucahya – spesialis <strong>panel lantai & panel dinding</strong> berkualitas tinggi. Solusi konstruksi masa depan untuk rumah, ruko, gudang, hingga bangunan bertingkat.</p>
+            <a href="produk.html" class="btn">Lihat Produk →</a>
+            <a href="kontak.html" class="btn btn-outline" style="margin-left: 12px;">Konsultasi Gratis</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://placehold.co/500x300/1e3a8a/ffffff?text=Panel+Lantai+%26+Dinding" alt="Panel Lantai dan Dinding">
+            <p style="font-size: 0.8rem; margin-top: 12px;">Teknologi panel precast mutu tinggi</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 CV. Wirasucahya – Solusi Panel Lantai & Dinding Indonesia</p>
+    </div>
+</footer>
+
+<script>
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+        });
+    });
+</script>
+</body>
+</html>

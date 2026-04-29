@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>CV. Wirasucahya - Produk & Spesifikasi Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f9ff;
+            color: #0a2540;
+            line-height: 1.5;
+        }
+
+        .navbar {
+            background-color: #0f2b4d;
+            color: white;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .nav-links a.active {
+            color: #3b82f6;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            font-weight: bold;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 70px 0;
+            min-height: calc(100vh - 80px);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+            font-weight: 700;
+            color: #0f2b4d;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #3b82f6;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            flex: 1;
+            min-width: 280px;
+            transition: 0.3s;
+            border: 1px solid #dbeafe;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-header {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-header h3 {
+            font-size: 1.8rem;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .spec-list {
+            list-style: none;
+        }
+
+        .spec-list li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .spec-list li:before {
+            content: "✓";
+            color: #2563eb;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .info-text {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: #0a2540;
+            color: #bbdef5;
+            text-align: center;
+            padding: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0 10px 0;
+                gap: 16px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .navbar .container {
+                flex-wrap: wrap;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 50px 0;
+                min-height: auto;
+            }
+
+            .product-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">CV. <span>Wirasucahya</span></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Pengenalan</a></li>
+            <li><a href="produk.html" class="active">Produk & Spek</a></li>
+            <li><a href="manfaat.html">Manfaat</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">Produk Unggulan & Spesifikasi</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="card-header">
+                    <h3>📐 Panel Lantai</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="spec-list">
+                        <li><strong>Tebal</strong> : 12 cm – 15 cm</li>
+                        <li><strong>Ukuran standar</strong> : 120 x 300 cm</li>
+                        <li><strong>Kuat tekan</strong> : ≥ 35 MPa (K-350)</li>
+                        <li><strong>Berat jenis</strong> : 2400 kg/m³</li>
+                        <li><strong>Rangka baja</strong> : wiremesh M8 – M10</li>
+                        <li><strong>Ketahanan api</strong> : kelas A1</li>
+                        <li><strong>Aplikasi</strong> : lantai 1,2,3 & dak beton</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="card-header">
+                    <h3>🧱 Panel Dinding</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="spec-list">
+                        <li><strong>Tebal</strong> : 8 cm – 12 cm</li>
+                        <li><strong>Ukuran standar</strong> : 120 x 240 cm</li>
+                        <li><strong>Kuat tekan</strong> : ≥ 30 MPa (K-300)</li>
+                        <li><strong>Berat jenis</strong> : 1800 – 2100 kg/m³</li>
+                        <li><strong>Kedap air & suara</strong> : sangat baik</li>
+                        <li><strong>Instalasi cepat</strong> : bongkar pasang sistem sambung</li>
+                        <li><strong>Ramah lingkungan</strong> : material efisien</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="info-text">✅ Tersedia juga ukuran custom sesuai kebutuhan proyek Anda.</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 CV. Wirasucahya – Solusi Panel Lantai & Dinding Indonesia</p>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>CV. Wirasucahya - Manfaat Panel Lantai & Dinding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f9ff;
+            color: #0a2540;
+            line-height: 1.5;
+        }
+
+        .navbar {
+            background-color: #0f2b4d;
+            color: white;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+            border-radius: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .nav-links a.active {
+            color: #3b82f6;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            font-weight: bold;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 70px 0;
+            min-height: calc(100vh - 80px);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+            font-weight: 700;
+            color: #0f2b4d;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #3b82f6;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        .benefit-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 32px;
+            flex: 1;
+            min-width: 240px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+            border-bottom: 4px solid #3b82f6;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #0f2b4d;
+        }
+
+        .benefit-item p {
+            color: #475569;
+        }
+
+        footer {
+            background: #0a2540;
+            color: #bbdef5;
+            text-align: center;
+            padding: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0 10px 0;
+                gap: 16px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .navbar .container {
+                flex-wrap: wrap;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 50px 0;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">CV. <span>Wirasucahya</span></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Pengenalan</a></li>
+            <li><a href="produk.html">Produk & Spek</a></li>
+            <li><a href="manfaat.html" class="active">Manfaat</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">Mengapa Memilih Panel Kami?</h2>
+        <div class="benefit-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <h4>Pemasangan Cepat</h4>
+                <p>Hemat waktu hingga 60% dibanding metode konvensional. Proyek selesai lebih cepat.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💰</div>
+                <h4>Efisiensi Biaya</h4>
+                <p>Mengurangi kebutuhan bekisting, tenaga kerja, dan material pendukung.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🔒</div>
+                <h4>Kekuatan Maksimal</h4>
+                <p>Beton mutu tinggi, tahan gempa, dan beban berat untuk bangunan bertingkat.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🌿</div>
+                <h4>Ramah Lingkungan</h4>
+                <p>Limbah minim, produksi fabrikasi terkendali, dan material daur ulang.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎨</div>
+                <h4>Finishing Rapi</h4>
+                <p>Permukaan halus siap cat, tersedia tekstur ekspos maupun motif.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 CV. Wirasucahya – Solusi Panel Lantai & Dinding Indonesia</p>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+        });
+    });
+</script>
+</body>
+</html>

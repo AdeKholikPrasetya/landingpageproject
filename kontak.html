@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>CV. Wirasucahya - Kontak Person</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f9ff;
+            color: #0a2540;
+            line-height: 1.5;
+        }
+
+        .navbar {
+            background-color: #0f2b4d;
+            color: white;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+            border-radius: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .nav-links a.active {
+            color: #3b82f6;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            font-weight: bold;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 70px 0;
+            min-height: calc(100vh - 80px);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+            font-weight: 700;
+            color: #0f2b4d;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #3b82f6;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: white;
+            border-radius: 40px;
+            padding: 40px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: #0f2b4d;
+        }
+
+        .contact-detail {
+            margin: 24px 0;
+        }
+
+        .contact-detail p {
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 30px;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+        }
+
+        textarea {
+            border-radius: 24px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background-color: #1e3a8a;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: #2563eb;
+        }
+
+        .person-list {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        footer {
+            background: #0a2540;
+            color: #bbdef5;
+            text-align: center;
+            padding: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0 10px 0;
+                gap: 16px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .navbar .container {
+                flex-wrap: wrap;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 50px 0;
+                min-height: auto;
+            }
+
+            .contact-wrapper {
+                padding: 24px;
+            }
+
+            .contact-detail p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">CV. <span>Wirasucahya</span></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Pengenalan</a></li>
+            <li><a href="produk.html">Produk & Spek</a></li>
+            <li><a href="manfaat.html">Manfaat</a></li>
+            <li><a href="kontak.html" class="active">Kontak</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">Hubungi Tim Kami</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>CV. Wirasucahya</h3>
+                <p>Konsultasikan kebutuhan konstruksi panel lantai & dinding Anda. Dapatkan harga kompetitif dan layanan profesional.</p>
+                <div class="contact-detail">
+                    <p>📞 <strong>Telepon/WA</strong> : 0812-3456-7890</p>
+                    <p>📧 <strong>Email</strong> : info@wirasucahya.co.id</p>
+                    <p>📍 <strong>Alamat</strong> : Jl. Raya Industri No.88, Surabaya / Jakarta (pusat layanan)</p>
+                    <p>🕒 <strong>Jam kerja</strong> : Senin – Sabtu, 08.00 – 17.00</p>
+                </div>
+                <div class="person-list">
+                    <strong>Person Kontak Langsung:</strong><br><br>
+                    📱 Bapak Andika (Direktur) – 0812-3456-7891 <br><br>
+                    📱 Ibu Rina (Sales Marketing) – 0812-3456-7892
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nama lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Nomor telepon / WA" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email (opsional)">
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" placeholder="Butuh info panel lantai / dinding? Tulis kebutuhan proyek Anda..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Kirim Permintaan →</button>
+                </form>
+                <p style="font-size: 0.8rem; margin-top: 16px;">*Tim kami akan menghubungi Anda dalam 1x24 jam</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 CV. Wirasucahya – Solusi Panel Lantai & Dinding Indonesia</p>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+        });
+    });
+</script>
+</body>
+</html>
